@@ -1,0 +1,176 @@
+:root {
+  --cnb-bg: #f5f5f5;
+  --cnb-shadow: 0 2px 8px #0002;
+  --cnb-shadow-hover: 0 4px 16px #0001;
+  --cnb-radius-pill: 24px;
+  --cnb-radius-dialog: 16px;
+  --cnb-accent: #e0e0e0;
+  --cnb-text: #444;
+  --cnb-icon: #888;
+  --cnb-z-dialog: 1001;
+  --cnb-z-backdrop: 1000;
+}
+
+.cnb-root {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--cnb-bg);
+  border: none;
+  border-radius: var(--cnb-radius-pill);
+  box-shadow: var(--cnb-shadow);
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  color: var(--cnb-text);
+  cursor: pointer;
+  outline: none;
+  transition: box-shadow 0.2s, transform 0.2s;
+  position: relative;
+  z-index: var(--cnb-z-dialog);
+  font-family: inherit;
+  user-select: none;
+}
+
+.cnb-root:focus-visible {
+  box-shadow: 0 0 0 2px #b3d4fc, var(--cnb-shadow);
+}
+
+.cnb-plus {
+  font-size: 1.2em;
+  color: var(--cnb-icon);
+}
+
+.cnb-label {
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.cnb-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(245, 245, 245, 0.7);
+  z-index: var(--cnb-z-backdrop);
+  backdrop-filter: blur(1.5px);
+  transition: opacity 0.2s;
+}
+
+.cnb-dialog {
+  position: fixed;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--cnb-bg);
+  box-shadow: var(--cnb-shadow-hover);
+  border-radius: var(--cnb-radius-dialog);
+  z-index: var(--cnb-z-dialog);
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  overflow: hidden;
+  min-width: 320px;
+  max-width: 95vw;
+}
+
+.cnb-dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f7f7f7;
+  padding: 14px 20px 10px 20px;
+  font-size: 1.08em;
+  font-weight: 600;
+  border-bottom: 1px solid #eee;
+}
+
+.cnb-close {
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  color: var(--cnb-icon);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  transition: background 0.15s;
+}
+.cnb-close:hover,
+.cnb-close:focus-visible {
+  background: var(--cnb-accent);
+}
+
+.cnb-options-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px 12px;
+  padding: 24px 20px 20px 20px;
+}
+
+.cnb-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  background: none;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 0 10px 0;
+  font-size: 1em;
+  color: var(--cnb-text);
+  cursor: pointer;
+  transition: box-shadow 0.18s, transform 0.18s, background 0.18s;
+  outline: none;
+  position: relative;
+  min-width: 80px;
+  min-height: 70px;
+  user-select: none;
+}
+.cnb-option:focus-visible {
+  box-shadow: 0 0 0 2px #b3d4fc;
+  background: #f0f0f0;
+}
+.cnb-option:hover {
+  background: var(--cnb-accent);
+}
+
+.cnb-icon {
+  font-size: 1.5em;
+  color: var(--cnb-icon);
+}
+
+.cnb-opt-label {
+  font-size: 0.98em;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.cnb-loading .cnb-opt-label {
+  opacity: 0.5;
+}
+.cnb-spinner {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #bbb;
+  border-top: 2px solid #888;
+  border-radius: 50%;
+  animation: cnb-spin 0.7s linear infinite;
+}
+@keyframes cnb-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .cnb-dialog {
+    min-width: 95vw;
+    left: 2.5vw;
+    transform: none;
+  }
+  .cnb-options-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 8px;
+  }
+}
