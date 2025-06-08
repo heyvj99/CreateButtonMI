@@ -4,6 +4,7 @@ import FadeUpDown from "./MATypes/FadeUpDown.tsx";
 import Keyframes from "./MATypes/Keyframes.tsx";
 import ButtonHoverAndTap from "./MATypes/ButtonHoverAndTap.tsx";
 import DragAnimation from "./MATypes/DragAnimation.tsx";
+import ScrollIndicator from "./MATypes/ScrollIndicator.tsx";
 
 const MAGrid = () => {
   const [grid, setGrid] = useState<string[]>([]);
@@ -58,8 +59,10 @@ const MAGrid = () => {
         </motion.div>
         <motion.div
           variants={gridItemVariants}
-          className="bg-slate-800 aspect-square rounded-md p-4 justify-center gap-10 items-center"
-        ></motion.div>
+          className="bg-slate-800 aspect-square rounded-md p-4 justify-center gap-10 items-center flex flex-row"
+        >
+          <ScrollIndicator />
+        </motion.div>
         <motion.div
           variants={gridItemVariants}
           className="bg-slate-800 aspect-square rounded-md p-4 justify-center gap-10 items-center"
