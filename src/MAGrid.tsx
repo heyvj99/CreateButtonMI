@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import FadeUpDown from "./MATypes/FadeUpDown.tsx";
+import Keyframes from "./MATypes/Keyframes.tsx";
 
 const MAGrid = () => {
   const [grid, setGrid] = useState<string[]>([]);
@@ -35,8 +36,10 @@ const MAGrid = () => {
         </motion.div>
         <motion.div
           variants={gridItemVariants}
-          className="bg-slate-800 aspect-square rounded-md p-4 gap-10 justify-center items-center"
-        ></motion.div>
+          className="bg-slate-800 aspect-square rounded-md p-4 gap-10 justify-center items-center flex flex-row"
+        >
+          <Keyframes />
+        </motion.div>
         <motion.div
           variants={gridItemVariants}
           className="bg-slate-800 aspect-square rounded-md p-4 gap-10 justify-center items-center"
