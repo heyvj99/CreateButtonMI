@@ -1,13 +1,13 @@
 import { useState } from "react";
 import "./App.css";
-import CreateNewButton from "./CreateNewButton.tsx";
+import MAGrid from "./MAGrid.tsx";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <div style={{ padding: 60 }}>
-      <CreateNewButton />
+      <MAGrid />
     </div>
   );
 }
